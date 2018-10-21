@@ -1,0 +1,33 @@
+query getsingledeveloper($id: Int) {
+    getonenodedevelopers(id: $id) {
+        designation
+        name
+  }
+}
+
+{
+  "id": 123
+}
+
+query getalldevelopers($designation: String) {
+    getnodedevelopers(designation: $designation) {
+        designation
+        name
+  }
+}
+
+http://localhost:4000/graphql/nodedeveloper?query=getnodedevelopers(designation:'doctor')
+http://localhost:4000/graphql?query=query%20getalldevelopers(%24designation%3A%20String)%20%7B%0A%20%20%20%20getnodedevelopers(designation%3A%20%24designation)%7B%0A%20%20%20%20%20%20%20%20designation%0A%20%20%20%20%20%20%20name%0A%20%20%7D%0A%7D
+
+query getsingledeveloper($name: String, $email:String, $password:String) {
+    Login(name:$name, email:$email, password:$password) {
+        email
+        name
+  }
+}
+
+{
+  "password":"9009898",
+  "name": "pavani",
+  "email":"pavniloukhya@gmail.com"
+}
